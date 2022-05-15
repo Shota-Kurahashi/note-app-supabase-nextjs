@@ -1,7 +1,7 @@
 import { useMutation } from "react-query";
 import { supabase } from "../utils/supabase";
 import useStore from "../store";
-import { revalidateSingle } from "../utils/revalidation";
+import { revalidateList, revalidateSingle } from "../utils/revalidation";
 import { Note, EditedNote } from "../types/types";
 
 export const useMutateNote = () => {
@@ -15,6 +15,7 @@ export const useMutateNote = () => {
     },
     {
       onSuccess: () => {
+        revalidateList();
         reset();
         alert("Successfully completed !!");
       },
@@ -36,6 +37,7 @@ export const useMutateNote = () => {
     },
     {
       onSuccess: (res) => {
+        revalidateList();
         revalidateSingle(res[0].id);
         reset();
         alert("Successfully completed !!");
@@ -58,6 +60,7 @@ export const useMutateNote = () => {
     },
     {
       onSuccess: () => {
+        revalidateList();
         reset();
         alert("Successfully completed !!");
       },

@@ -1,10 +1,10 @@
-import { FormEvent, FC } from "react";
+import { FormEvent, VFC } from "react";
 import { supabase } from "../utils/supabase";
 import useStore from "../store";
 import { useMutateNote } from "../hooks/useMutateNote";
 import { Spinner } from "./Spinner";
 
-export const NoteForm: FC = () => {
+export const NoteForm: VFC = () => {
   const { editedNote } = useStore();
   const update = useStore((state) => state.updateEditedNote);
   const { createNoteMutation, updateNoteMutation } = useMutateNote();

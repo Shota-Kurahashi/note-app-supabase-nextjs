@@ -31,8 +31,8 @@ export const CommentItem: FC<Omit<Comment, "created_at" | "note_id">> = ({
             className="mx-1 h-5 w-5 cursor-pointer text-blue-500"
             onClick={() => {
               update({
-                id,
-                content,
+                id: id,
+                content: content,
               });
             }}
           />
